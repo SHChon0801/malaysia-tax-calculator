@@ -1,19 +1,28 @@
-import React from 'react'
-import { formatCurrency } from '@/utils/helpers';
+import { formatCurrency } from "@/utils/helpers";
 
 interface ResultCardProps {
-    label: string;
-    value: string | number;
-    currency?: string;
+  totalIncome: number;
+  totalReliefs: number;
+  chargeableIncome: number;
+  taxOwed: number;
 }
 
-export default function ResultCard({ label, value }: ResultCardProps) {
-    return (
-        <div className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500">
-            <p className="text-gray-600 text-sm font-medium mb-2">{label}</p>
-            <p className="text-3xl font-bold text-gray-900">
-                {typeof value === 'number' ? formatCurrency(value) : value}
-            </p>
-        </div>
-    );
+export default function ResultCard({
+  totalIncome,
+  totalReliefs,
+  chargeableIncome,
+  taxOwed,
+}: ResultCardProps) {
+  return (
+    <div className="rounded-lg border p-4 space-y-2">
+      <div>Total Income: {formatCurrency(totalIncome)}</div>
+      <div>Total Reliefs: {formatCurrency(totalReliefs)}</div>
+      <div className="font-semibold">
+        Chargeable Income: {formatCurrency(chargeableIncome)}
+      </div>
+      <div className="font-semibold">
+        Total Tax Owed: {formatCurrency(taxOwed)}
+      </div>
+    </div>
+  );
 }

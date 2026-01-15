@@ -4,13 +4,16 @@
  * @param currency The currency code (default is 'MYR').
  * @returns A formatted currency string.
  */
-export function formatCurrency(amount: number, currency: string = 'MYR'): string {
-    return new Intl.NumberFormat('en-MY', {
-        style: 'currency',
-        currency: currency,
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-    }).format(amount);
+export function formatCurrency(
+  amount: number,
+  currency: string = "MYR"
+): string {
+  return new Intl.NumberFormat("en-MY", {
+    style: "currency",
+    currency: currency,
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(amount);
 }
 
 /**
@@ -19,5 +22,5 @@ export function formatCurrency(amount: number, currency: string = 'MYR'): string
  * @returns The numeric amount.
  */
 export function parseCurrency(value: string): number {
-    return parseFloat(value.replace(/[^\d.-]/g, ''));
+  return parseFloat(value.replace(/[^\d.-]/g, ""));
 }
